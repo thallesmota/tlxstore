@@ -1,0 +1,66 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 11
+    },
+    {
+      "id": 2,
+      "amount": 1
+    },
+    {
+      "id": 3,
+      "amount": 2
+    },
+    {
+      "id": 4,
+      "amount": 11
+    },
+    {
+      "id": 5,
+      "amount": 2
+    },
+    {
+      "id": 6,
+      "amount": 4
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "AK-47 | Legion of Anubis",
+      "price": 3462.65,
+      "image": "https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
+    },
+    {
+      "id": 2,
+      "title": "MAG-7 | Monster Call",
+      "price": 243.32,
+      "image": "https://csgostash.com/storage/img/skin_sideview/s1276.png?id=7fd16dd6ef185cfcb359"
+    },
+    {
+      "id": 3,
+      "title": "M4A4 | Howl",
+      "price": 9787.75,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_m4a1_cu_m4a1_howling_light_large.c64a9fc9fa04b5d10d4b1e200135e59285c8a77c.png"
+    },
+    {
+      "id": 4,
+      "title": "Desert Eagle | Code Red",
+      "price": 324.41,
+      "image": "https://csgostash.com/skin/947/Desert-Eagle-Code-Red"
+    },
+    {
+      "id": 5,
+      "title": "Gamma Doppler",
+      "price": 4561.91,
+      "image": "https://csgostash.com/storage/img/skin_sideview/s779.png?id=b10b76e20a36a96448db"
+    },
+    {
+      "id": 6,
+      "title": "Butterfly Knife | Marble Fade",
+      "price": 9558.0,
+      "image": "https://csgostash.com/storage/img/skin_sideview/s858.png?id=f5292f8c99849f9b2ae2"
+    }
+  ]
+}
