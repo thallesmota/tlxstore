@@ -32,7 +32,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50px, 0;
+  margin: 80px, 0;
 `;
 
 export const Cart = styled(Link)`

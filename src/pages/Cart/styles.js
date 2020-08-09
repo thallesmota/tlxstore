@@ -6,8 +6,6 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 100vh;
-    height: 450px;
 
     button {
       display: flex;
@@ -22,6 +20,20 @@ export const Container = styled.div`
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
+    }
+
+    thead {
+      th {
+        display: none;
+      }
+    }
+
+    tbody {
+      td {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
     }
   }
 

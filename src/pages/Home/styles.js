@@ -32,6 +32,7 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
+  margin-top: 60px;
 
   li {
     display: flex;
@@ -42,7 +43,7 @@ export const ProductList = styled.ul`
 
     img {
       align-self: center;
-      max-width: 250px;
+      max-width: 225px;
     }
 
     > strong {

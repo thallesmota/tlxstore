@@ -1,100 +1,73 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { ProductList } from "./styles";
 import { MdAddShoppingCart } from "react-icons/md";
+import api from "../../services/api";
+import { formatPrice } from "../../util/format";
+import * as CartActions from "../../store/modules/cart/actions";
 
-export default function Home() {
-  return (
-    <ProductList>
-      <li>
-        <img
-          src="https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
-          alt="Ak-47"
-          width="250px"
-        />
-        <strong>AK-47 | Legion of Anubis</strong>
-        <span>R$500</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
-          <span> ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
-          alt="Ak-47"
-          width="250px"
-        />
-        <strong>AK-47 | Legion of Anubis</strong>
-        <span>R$500</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
-          <span> ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
-          alt="Ak-47"
-          width="250px"
-        />
-        <strong>AK-47 | Legion of Anubis</strong>
-        <span>R$500</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
-          <span> ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
-          alt="Ak-47"
-          width="250px"
-        />
-        <strong>AK-47 | Legion of Anubis</strong>
-        <span>R$500</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
-          <span> ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
-          alt="Ak-47"
-          width="250px"
-        />
-        <strong>AK-47 | Legion of Anubis</strong>
-        <span>R$500</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
-          <span> ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src="https://csgostash.com/storage/img/skin_sideview/s1285.png?id=4816ffb3a25e858c60dc"
-          alt="Ak-47"
-          width="250px"
-        />
-        <strong>AK-47 | Legion of Anubis</strong>
-        <span>R$500</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
-          <span> ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-    </ProductList>
-  );
+class Home extends Component {
+  state = {
+    products: [],
+  };
+
+  async componentDidMount() {
+    const response = await api.get("products");
+
+    const data = response.data.map((product) => ({
+      ...product,
+      priceFormatted: formatPrice(product.price),
+    }));
+
+    this.setState({
+      products: data,
+    });
+  }
+
+  handleAddProduct = (product) => {
+    const { addToCart } = this.props;
+
+    addToCart(product);
+  };
+
+  render() {
+    const { products } = this.state;
+    const { amount } = this.props;
+
+    return (
+      <ProductList>
+        {products.map((product) => (
+          <li key={product.id}>
+            <img src={product.image} alt={product.title} />
+            <strong>product.title</strong>
+            <span>{product.priceFormatted}</span>
+            <button
+              type="button"
+              onClick={() => this.handleAddProduct(product)}
+            >
+              <div>
+                <MdAddShoppingCart size={16} color="#FFF" />
+                {amount[product.id] || 0}
+              </div>
+              <span> ADICIONAR AO CARRINHO</span>
+            </button>
+          </li>
+        ))}
+      </ProductList>
+    );
+  }
 }
+
+const mapStateToProps = (state) => ({
+  amount: state.cart.reduce((amount, product) => {
+    amount[product.id] = product.amount;
+
+    return amount;
+  }, {}),
+});
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
