@@ -1,35 +1,46 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Cart } from "./styles";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
-import { MdShoppingBasket, MdSearch } from "react-icons/md";
+import { MdShoppingBasket } from "react-icons/md";
 
-function Header({ cartSize }) {
-  return (
-    <div>
-      <Container>
-        <Link to="/">
-          <img src={logo} width="200px" alt="tlxStore" />
-        </Link>
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-        <div>
-          <input />
-          <button>
-            <MdSearch size={20} color="#FFF" />
-          </button>
-        </div>
+  handleChange = (event) => {
+    this.setState({ inputValue: event.target.value });
+  };
 
-        <Cart to="/cart">
-          <div>
-            <strong>Meu carrinho</strong>
-            <span>{cartSize} itens</span>
-          </div>
-          <MdShoppingBasket size={36} color="#FFF" />
-        </Cart>
-      </Container>
-    </div>
-  );
+  searchSkin = () => {
+    console.log("Sua skin:", this.state.inputValue);
+  };
+
+  render() {
+    return (
+      <div>
+        <Container>
+          <Link to="/">
+            <img src={logo} width="200px" alt="tlxStore" />
+          </Link>
+
+          <Cart to="/cart">
+            <div>
+              <MdShoppingBasket size={32} color="#FFF" />
+              <strong>Meu carrinho</strong>
+              <span> ({this.props.cartSize} itens)</span>
+            </div>
+          </Cart>
+        </Container>
+      </div>
+    );
+  }
 }
 
 export default connect((state) => ({

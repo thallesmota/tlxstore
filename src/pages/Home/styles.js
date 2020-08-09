@@ -1,6 +1,26 @@
 import styled from "styled-components";
 import { darken } from "polished";
 
+export const Container = styled.div`
+  display: flex;
+
+  input {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #666;
+    padding: 6px;
+    width: 255px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd;
+
+    ::placeholder {
+      font-size: 15px;
+      color: #666;
+    }
+  }
+`;
+
 export const ProductList = styled.ul`
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     display: flex;

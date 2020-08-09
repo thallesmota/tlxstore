@@ -37,7 +37,7 @@ export default createGlobalStyle`
   }
 
   *{
-    margin: 0px;
+    margin: 1px;
     padding: 0;
     outline: 0;
     box-sizing: border-box;

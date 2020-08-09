@@ -37,26 +37,6 @@ export const Container = styled.div`
   div {
     display: flex;
     align-items: center;
-
-    input {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      color: #666;
-      padding: 6px;
-      width: 225px;
-    }
-
-    button {
-      background: #293929;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: auto;
-      display: flex;
-      padding: 8px;
-      margin-left: 5px;
-    }
   }
 `;
 
@@ -65,6 +45,7 @@ export const Cart = styled(Link)`
   align-items: center;
   text-decoration: none;
   transition: opacity 0.2s;
+  flex-direction: column;
 
   &:hover {
     opacity: 0.7;
@@ -73,6 +54,8 @@ export const Cart = styled(Link)`
   div {
     text-align: right;
     margin-right: 10px;
+    flex-direction: column;
+    display: flex;
 
     strong {
       display: block;
