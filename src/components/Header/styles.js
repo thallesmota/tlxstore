@@ -6,6 +6,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin: 20px, 20px;
+    flex-direction: column;
   }
 
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -32,7 +33,31 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 80px, 0;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    input {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      color: #666;
+      padding: 6px;
+      width: 225px;
+    }
+
+    button {
+      background: #293929;
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: auto;
+      display: flex;
+      padding: 8px;
+      margin-left: 5px;
+    }
+  }
 `;
 
 export const Cart = styled(Link)`

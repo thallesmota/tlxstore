@@ -32,7 +32,7 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
-  margin-top: 60px;
+  margin-top: 40px;
 
   li {
     display: flex;

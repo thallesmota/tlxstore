@@ -3,15 +3,22 @@ import { connect } from "react-redux";
 import { Container, Cart } from "./styles";
 import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
-import { MdShoppingBasket } from "react-icons/md";
+import { MdShoppingBasket, MdSearch } from "react-icons/md";
 
 function Header({ cartSize }) {
   return (
     <div>
       <Container>
         <Link to="/">
-          <img src={logo} width="250px" alt="tlxStore" />
+          <img src={logo} width="200px" alt="tlxStore" />
         </Link>
+
+        <div>
+          <input />
+          <button>
+            <MdSearch size={20} color="#FFF" />
+          </button>
+        </div>
 
         <Cart to="/cart">
           <div>
